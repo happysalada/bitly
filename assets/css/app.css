@@ -1,0 +1,12 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}

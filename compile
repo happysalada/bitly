@@ -1,0 +1,3 @@
+npm run deploy
+cd ..
+mix phx.digest
