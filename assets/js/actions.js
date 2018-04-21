@@ -57,7 +57,7 @@ export function getTransactions(accounts) {
       //   console.log(account);
       //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
       // })
-      const response = await fetch(`/api/accounts/${accounts[2]}/transactions`, {credentials: 'same-origin'})
+      const response = await fetch(`/api/accounts/${accounts[1]}/transactions`, {credentials: 'same-origin'})
       //const response = await Promise.all(transactionRequests);
       const {body} = await response.json(); //Promise.all(response.map(list => list.json()));
       const {data} = JSON.parse(body);

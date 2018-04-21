@@ -18,6 +18,7 @@ import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
 import Moment from 'react-moment';
 import { getAccounts } from '../actions';
+import NavTabs from './NavTabs';
 
 
 class WalletPage extends Component {
@@ -70,14 +71,14 @@ class WalletPage extends Component {
 
     return (
       <React.Fragment>
-        <AppBar position='static'>
+        <AppBar position='static' style={{margin: 0}}>
           <Toolbar>
-            <Button onClick={() => { console.log(this.props.currentState) }}>GET STATE</Button>
             <span style={{ flex: 1 }}></span>
             <Typography variant='title' style={{ fontSize: '30px' }}>Wallets</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>
+        <NavTabs />
         <Paper style={{ width: '90%', margin: 'auto' }}>
           <Table>
             <TableBody>

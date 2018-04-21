@@ -161,9 +161,6 @@ class TransactionsPage extends Component {
       <React.Fragment>
         <AppBar position='static' style={{margin: 0}}>
           <Toolbar disableGutters>
-            <Button onClick={() => { console.log(this.props.currentState) }}>GET STATE</Button>
-            <Button onClick={() => { this.props.getAccounts(); }}>GET ACCOUNTS</Button>
-            <Button onClick={() => { this.props.history.push('/app/wallets') }}>WALLETS</Button>
             <span style={{ flex: 1 }}></span>
             <Typography variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
             <span style={{ flex: 1 }}></span>
