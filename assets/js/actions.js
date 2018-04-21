@@ -53,13 +53,15 @@ export function getTransactions(accounts) {
   return async dispatch => {
     try {
       let transactionRequests = [];
-      accounts.map(account => {
-        console.log(account);
-        transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
-      })
-      const response = await Promise.all(transactionRequests);
-      const {body} = await response.map(list => list.json());
-      dispatch({type: 'UPDATE_TRANSACTIONS', data: body})
+      // accounts.map(account => {
+      //   console.log(account);
+      //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
+      // })
+      const response = await fetch(`/api/accounts/${accounts[2]}/transactions`, {credentials: 'same-origin'})
+      //const response = await Promise.all(transactionRequests);
+      const {body} = await response.json(); //Promise.all(response.map(list => list.json()));
+      const {data} = JSON.parse(body);
+      dispatch({type: 'UPDATE_TRANSACTIONS', data})
     } catch ({message}) {
       console.log(message)
     }
