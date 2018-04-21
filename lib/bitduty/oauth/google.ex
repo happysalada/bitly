@@ -1,4 +1,4 @@
-defmodule Bitduty.Oauth.Google do
+defmodule Google do
   @moduledoc """
   An OAuth2 strategy for Google.
   """

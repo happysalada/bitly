@@ -46,6 +46,12 @@
               <% else %>
                 <br>
                 <br>
+                <a href="/auth/coinbase">
+                  <button class="mdc-button" >
+                    <i class="fa fa-google"></i>
+                    Sign in with Coinbase
+                  </button>
+                </a>
                 <a href="/auth/google">
                   <button class="mdc-button" >
                     <i class="fa fa-google"></i>

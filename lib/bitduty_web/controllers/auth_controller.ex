@@ -1,9 +1,6 @@
 defmodule BitdutyWeb.AuthController do
   use BitdutyWeb, :controller
 
-  alias Bitduty.Oauth.Coinbase
-  alias Bitduty.Oauth.Google
-
   @doc """
   This action is reached via `/auth/:provider` and redirects to the OAuth2 provider
   based on the chosen strategy.
