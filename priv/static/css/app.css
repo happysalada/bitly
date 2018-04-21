@@ -126,12 +126,9 @@ header nav a {
   }
 }
 /* This file is for your main application css. */
-
 body {
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 *:focus {
-  outline: none;
-}
+  outline: none; }
