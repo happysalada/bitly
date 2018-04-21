@@ -48,12 +48,18 @@ export function getAccounts() {
   };
 }
 
-export function getTransactions() {
+export function getTransactions(accounts) {
+  console.log('IN ACTIONS' ,accounts);
   return async dispatch => {
     try {
-      const response = await fetch('/api/transactions', {credentials: 'same-origin'})
-      const {body} = await response.json()
-      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)})
+      let transactionRequests = [];
+      accounts.map(account => {
+        console.log(account);
+        transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
+      })
+      const response = await Promise.all(transactionRequests);
+      const {body} = await response.map(list => list.json());
+      dispatch({type: 'UPDATE_TRANSACTIONS', data: body})
     } catch ({message}) {
       console.log(message)
     }

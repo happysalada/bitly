@@ -22,6 +22,10 @@ import NavTabs from './NavTabs';
 
 class TransactionsPage extends Component {
 
+  state = {
+    update: true
+  }
+
   styles = {
     currencyImg: {
       height: '45px',
@@ -33,8 +37,18 @@ class TransactionsPage extends Component {
   }
 
   componentDidMount() {
-    //this.props.getAccounts();
-    //this.props.getTransactions();
+    if (this.props.accounts && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+    } else {
+      this.props.getAccounts();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.accounts && !this.props.transactions && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+      this.setState({update: false});
+    }
   }
 
   getCurrencyImg(currency) {
@@ -115,7 +129,7 @@ class TransactionsPage extends Component {
 
 
   render() {
-    const currentTransactions = this.props.transactions.map((transaction) => {
+    const currentTransactions = this.props.transactions ? this.props.transactions.map((transaction) => {
       return (
         <TableRow key={transaction.id}>
           <TableCell style={{ textAlign: 'center' }}>
@@ -140,7 +154,7 @@ class TransactionsPage extends Component {
           </TableCell>
         </TableRow>
       )
-    });
+    }) : <TableRow><TableCell><Typography component='span'>No Transactions</Typography></TableCell></TableRow>;
 
 
     return (
@@ -171,14 +185,16 @@ class TransactionsPage extends Component {
 const mapStateToProps = state => {
   return {
     currentState: state,
-    transactions: state.transactions
+    transactions: state.transactions,
+    wallets: state.wallets,
+    accounts: state.accounts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     getAccounts: () => dispatch(getAccounts()),
-    getTransactions: () => dispatch(getTransactions())
+    getTransactions: (accounts) => dispatch(getTransactions(accounts))
   };
 };
 
