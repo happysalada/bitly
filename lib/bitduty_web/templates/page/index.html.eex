@@ -40,8 +40,14 @@
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
               <h1>Robot Tax Adviser!</h1>
-              <button class="foo-button mdc-button">
-              Log In Button
+              <button class="button">
+              Log In Button with E-mail
+              </button>
+              <button class="button">
+              Log In Button with facebook
+              </button>
+              <button class="button">
+              Log In Button with Gmail
               </button>
             </div>
             <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
