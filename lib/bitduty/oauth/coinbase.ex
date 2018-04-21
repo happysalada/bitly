@@ -1,4 +1,4 @@
-defmodule Bitduty.Oauth.Coinbase do
+defmodule Coinbase do
   @moduledoc """
   An OAuth2 strategy for Google.
   """

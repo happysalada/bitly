@@ -25,7 +25,11 @@
     "react-device-detect": "^0.1.0",
     "react-dom": "^16.3.2",
     "react-google-maps": "^9.4.5",
+<<<<<<< HEAD
     "react-map-gl": "^3.2.7",
+=======
+    "react-moment": "^0.7.0",
+>>>>>>> 40b841587d4f438e7b6838167268fd42aa28a6f1
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -40,6 +44,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.10",

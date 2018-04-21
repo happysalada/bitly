@@ -1,9 +1,6 @@
 defmodule BitdutyWeb.AuthController do
   use BitdutyWeb, :controller
 
-  alias Bitduty.Oauth.Coinbase
-  alias Bitduty.Oauth.Google
-
   @doc """
   This action is reached via `/auth/:provider` and redirects to the OAuth2 provider
   based on the chosen strategy.
@@ -42,7 +39,7 @@ defmodule BitdutyWeb.AuthController do
     conn
     |> put_session(:current_user, user)
     |> put_session(:access_token, client.token.access_token)
-    |> redirect(to: "/")
+    |> redirect(to: "/app/transactions")
   end
 
   defp authorize_url!("coinbase"),
@@ -58,8 +55,16 @@ defmodule BitdutyWeb.AuthController do
 
   defp authorize_url!(_), do: raise("No matching provider available")
 
+  defp get_token!("coinbase", code), do: Coinbase.get_token!(code: code, grant_type: "authorization_code")
   defp get_token!("google", code), do: Google.get_token!(code: code)
   defp get_token!(_, _), do: raise("No matching provider available")
+
+  defp get_user!("coinbase", client) do
+    %{body: %{"data" => user}} =
+      OAuth2.Client.get!(client, "https://api.coinbase.com/v2/user")
+
+    %{name: user["name"], avatar: user["avatar_url"]}
+  end
 
   defp get_user!("google", client) do
     %{body: user} =
