@@ -23,11 +23,11 @@ module.exports = (env, options) => ({
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader',
-              options: { minimize: options.mode === 'production' }
+              loader: 'sass-loader' // compiles Sass to CSS
             },
             {
-              loader: 'sass-loader' // compiles Sass to CSS
+              loader: 'css-loader',
+              options: { minimize: options.mode === 'production' }
             }
           ]
         })
