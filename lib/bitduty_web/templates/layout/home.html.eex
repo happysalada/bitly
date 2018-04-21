@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=no"/>
     <title>Bitduty · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_push(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_push(@conn, "/js/app.js") %>"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
@@ -27,36 +28,6 @@
   <meta name="twitter:card" content="" />
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-  
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- Icomoon Icon Fonts-->
-  <link rel="stylesheet" href="css/icomoon.css">
-  <!-- Themify Icons-->
-  <link rel="stylesheet" href="css/themify-icons.css">
-  <!-- Bootstrap  -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
-
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-
-  <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-  <!-- Theme style  -->
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Modernizr JS -->
-  <script src="js/modernizr-2.6.2.min.js"></script>
-  <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
-  <script src="js/respond.min.js"></script>
-  <![endif]-->
-
 
   </head>
   <body>

@@ -9,7 +9,7 @@ import css from '../css/app.css';
 //
 // Import dependencies
 //
-import "phoenix_html"
+import 'phoenix_html';
 
 // Import local files
 //
@@ -21,7 +21,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MainApp from './MainApp';
 import { BrowserRouter } from 'react-router-dom';
-import { createMuiTheme , MuiThemeProvider } from 'material-ui/styles';
+import { createMuiTheme, MuiThemeProvider } from 'material-ui/styles';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -29,20 +29,25 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#81ff6d',
-      contrastText: '#fff',
+      contrastText: '#fff'
     },
     secondary: {
       main: '#fff',
-      contrastText: '#fff',
-    },
-  },
+      contrastText: '#fff'
+    }
+  }
 });
 
-ReactDOM.render(
+const reactDom = document.getElementById('root');
+if (reactDom) {
+  ReactDOM.render(
     <MuiThemeProvider theme={theme}>
-        <Provider store={store}>
-            <BrowserRouter>
-                <MainApp />
-            </BrowserRouter>
-        </Provider>
-    </MuiThemeProvider>, document.getElementById('root'));
+      <Provider store={store}>
+        <BrowserRouter>
+          <MainApp />
+        </BrowserRouter>
+      </Provider>
+    </MuiThemeProvider>,
+    reactDom
+  );
+}

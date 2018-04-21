@@ -26,8 +26,21 @@ module.exports = (env, options) => ({
         }
       },
       {
-        test: /\.css$/,
+        test: /\.s?[ac]ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {}
+          }
+        ]
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=public/fonts/[name].[ext]'
       }
     ]
   },
