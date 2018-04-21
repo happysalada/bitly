@@ -8,8 +8,8 @@ class MainApp extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path='/' exact component={HomePage} />
-        <Route path='/transactions' exact component={TransactionsPage} />
+        <Route path='/app/' exact component={HomePage} />
+        <Route path='/app/transactions' exact component={TransactionsPage} />
       </React.Fragment>
     );
   }
