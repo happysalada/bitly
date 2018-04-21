@@ -5,3 +5,4 @@
 /deps
 .env
 /priv/static
+priv/static/js/app.js
