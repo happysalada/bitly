@@ -36,15 +36,12 @@ export function leaveChannel(channel) {
   };
 }
 
-export function updateItems() {
+export function getAccounts() {
   return dispatch => {
-    fetch('/api/minikura')
+    fetch('/api/accounts')
       .then(response => response.json())
-      .then(({status, results}) => {
-        if (status === '1') dispatch({
-          type: 'UPDATE_ITEMS',
-          items: results
-        });
+      .then((result) => {
+        console.log(result);
       })
       .catch(error => console.log(error));
   };

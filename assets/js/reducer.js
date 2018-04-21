@@ -30,6 +30,7 @@ const initialState = {
       }
     },
     {
+      "exchange": "coinbase",
       "id": "57ffb4ae-0c59-5430-bcd3-3f98f797a66c",
       "type": "send",
       "status": "completed",

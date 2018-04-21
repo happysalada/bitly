@@ -17,40 +17,38 @@ import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
 import Moment from 'react-moment';
+import { getAccounts } from '../actions'
 
 class TransactionsPage extends Component {
 
   styles = {
     currencyImg: {
-      width: '20%',
     },
     typeImg: {
-      width: '25%',
-      marginLeft: '10px'
     }
   }
 
   getCurrencyImg(currency) {
     switch (currency) {
       case 'USD':
-        return 'https://placehold.it/500x500';
+        return 'https://placehold.it/80x80';
       case 'BTC':
-        return 'https://placehold.it/500x500';
+        return 'https://placehold.it/80x80';
       case 'LTC':
-        return 'https://placehold.it/500x500';
+        return 'https://placehold.it/80x80';
       case 'ETH':
-        return 'https://placehold.it/500x500';
+        return 'https://placehold.it/80x80';
     }
   }
 
   getTypeImg(type) {
     switch (type) {
       case 'buy':
-        return 'https://placehold.it/500x500';
+        return '/images/recieve.png';
       case 'sell':
-        return 'https://placehold.it/500x500';
+        return '/images/dollar.png';
       case 'send':
-        return 'https://placehold.it/500x500';
+        return '/images/send.png';
     }
   }
 
@@ -81,8 +79,8 @@ class TransactionsPage extends Component {
     }
     return (
       <React.Fragment>
-      <Typography style={{fontSize: '14px', fontWeight: 'bold'}}>{msg || 'error'}</Typography>
-      <Typography style={{fontSize: '12px'}}>{momentDate || 'error'}</Typography>
+        <Typography style={{ fontSize: '14px', fontWeight: 'bold' }}>{msg || 'error'}</Typography>
+        <Typography style={{ fontSize: '12px' }}>{momentDate || 'error'}</Typography>
       </React.Fragment>
     )
   }
@@ -92,15 +90,15 @@ class TransactionsPage extends Component {
       case 'pending':
         return (
           <React.Fragment>
-          <span style={{width: '3px', height: '3px', border: '3px solid grey', borderRadius: '3px', display: 'inline-block', marginRight: '2px'}}></span>
-          <span>Pending</span>
+            <span style={{ width: '3px', height: '3px', border: '3px solid grey', borderRadius: '3px', display: 'inline-block', marginRight: '2px' }}></span>
+            <span>Pending</span>
           </React.Fragment>
         )
-        case 'completed':
+      case 'completed':
         return (
           <React.Fragment>
-          <span style={{width: '3px', height: '3px', border: '3px solid green', borderRadius: '3px', display: 'inline-block', marginRight: '2px'}}></span>
-          <span>Complete</span>
+            <span style={{ width: '3px', height: '3px', border: '3px solid green', borderRadius: '3px', display: 'inline-block', marginRight: '2px' }}></span>
+            <span>Complete</span>
           </React.Fragment>
         )
     }
@@ -111,7 +109,7 @@ class TransactionsPage extends Component {
     const currentTransactions = this.props.transactions.map((transaction) => {
       return (
         <TableRow key={transaction.id}>
-          <TableCell padding='checkbox'>
+          <TableCell style={{ textAlign: 'center' }}>
             <img style={this.styles.typeImg} src={this.getTypeImg(transaction.type)} alt='currency img' />
           </TableCell>
           <TableCell>
@@ -120,15 +118,13 @@ class TransactionsPage extends Component {
               {<Typography>{this.getStatus(transaction.status)}</Typography>}
             </span>
           </TableCell>
-          <TableCell>
+          <TableCell style={{ textAlign: 'center' }}>
             <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
           </TableCell>
           <TableCell>
-            <Typography style={{fontSize: '12px'}}>{this.getPlace(transaction.exchange || 'address')}</Typography>
-            <Typography style={{fontSize: '12px', fontWeight: 'bold'}}>{`${transaction.amount.amount} ${transaction.amount.currency}`}</Typography>
-            {
-              transaction.type === 'sold' ? this.getLossProfit() : null
-            }
+            <Typography style={{ fontSize: '12px' }}>{this.getPlace(transaction.exchange || 'address')}</Typography>
+            <Typography style={{ fontSize: '12px', fontWeight: 'bold' }}>{`${transaction.amount.amount} ${transaction.amount.currency}`}</Typography>
+            <Typography>{`${transaction.native_amount.amount} ${transaction.native_amount.currency}` || ''}</Typography>
           </TableCell>
           <TableCell>
             <Icon>arrow_drop_down_circle</Icon>
@@ -143,13 +139,14 @@ class TransactionsPage extends Component {
         <AppBar position='static'>
           <Toolbar>
             <Button onClick={() => { console.log(this.props.currentState) }}>GET STATE</Button>
+            <Button onClick={() => { this.props.getAccounts(); }}>GET ACCOUNTS</Button>
             <span style={{ flex: 1 }}></span>
             <Typography variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>
         <Paper style={{ width: '90%', margin: 'auto' }}>
-          <Table style={{ minWidth: '700px' }}>
+          <Table>
             <TableBody>
               {currentTransactions}
             </TableBody>
@@ -169,6 +166,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    getAccounts: () => dispatch(getAccounts())
   };
 };
 
