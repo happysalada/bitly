@@ -23,7 +23,7 @@ defmodule BitdutyWeb.Router do
 
   scope "/", BitdutyWeb do
     pipe_through :browser # Use the default browser stack
-
+    get "/home", PageController, :home
     forward "/", PageController, :index
   end
 
