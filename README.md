@@ -7,13 +7,13 @@ To start your Phoenix server:
     On Mac OS to get up and running fast (with say Phoenix) simply run:
 
     $brew install postgresql && brew services start postgresql && psql postgres
-    then type:
+    then type:  
 
-    CREATE ROLE postgres;
-    ALTER ROLE postgres WITH LOGIN;
-    ALTER USER postgres CREATEDB;
-    then CTRL & D
-    $mix ecto.create
+    CREATE ROLE postgres;  
+    ALTER ROLE postgres WITH LOGIN;  
+    ALTER USER postgres CREATEDB;  
+    then CTRL & D  
+    $mix ecto.create  
   * Create and migrate your database with `mix ecto.setup`
     Then you should make .gitkeep(if you have error)
     $ vim priv/repo/migrations/.gitkeep
