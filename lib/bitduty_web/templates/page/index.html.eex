@@ -22,16 +22,20 @@
 
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <h1>More than 25% Cut Off! <br>More Earsily Saving Money with BitDuty!</h1>
+              <img src= ../../../../assets/img/PC.png>
+              <h1>Manage tax easy & quick  with BitDuty!</h1>
+              <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.
+</h2>
               <button class="button">
               Log In Button with E-mail
-              </button>
+              </button><br>
               <button class="button">
               Log In Button with facebook
-              </button>
+              </button><br>
               <button class="button">
               Log In Button with Gmail
               </button>
+              <p>By creating an account on BitDuty, you agree to our Terms and Privacy Policy.</p><br>
             </div>
             <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
               <div class="form-wrap">
@@ -52,7 +56,7 @@
     <div class="gtco-container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-          <h2>Problems</h2>
+          <h2>Merit</h2>
           <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
         </div>
       </div>
@@ -62,8 +66,8 @@
             <span class="icon">
               <i>1</i>
             </span>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+            <h3>BitDuty taxes made easy</h3>
+            <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -71,8 +75,8 @@
             <span class="icon">
               <i>2</i>
             </span>
-            <h3>Consectetur adipisicing elit</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+            <h3>Track performance</h3>
+            <p>Get a clear picture of your BitDuty investments, including the current portfolio, your return on investment over time, and more.</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -80,8 +84,8 @@
             <span class="icon">
               <i>3</i>
             </span>
-            <h3>Dignissimos asperiores vitae</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+            <h3>Track every transaction</h3>
+            <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
           </div>
         </div>
       </div>
