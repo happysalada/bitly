@@ -59,10 +59,10 @@ class WalletPage extends Component {
       return (
         <TableRow key={wallet.id}>
           <TableCell style={{ textAlign: 'center' }}>
-            <img style={this.styles.currencyImg} src={this.getCurrencyImg(wallet.currency, wallet.type)} alt='currency img' />
+            <img style={this.styles.currencyImg} src={this.getCurrencyImg(wallet.currency.code, wallet.type)} alt='currency img' />
           </TableCell>
           <TableCell>
-              <Typography>{`${wallet.balance.amount} ${wallet.balance.currency}`}</Typography>
+              <Typography style={{fontWeight: 'bold', fontSize: '18px'}}>{`${wallet.balance.amount} ${wallet.balance.currency}`}</Typography>
           </TableCell>
         </TableRow>
       )
