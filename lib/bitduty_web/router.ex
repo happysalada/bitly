@@ -15,16 +15,12 @@ defmodule BitdutyWeb.Router do
 
   scope "/api", BitdutyWeb do
 
-    post "/device_data", DeviceDataController, :index
-    get "/minikura", MinikuraController, :index
-    post "/minikura/update", MinikuraController, :update
-    post "/minikura/delete", MinikuraController, :delete
   end
 
   scope "/", BitdutyWeb do
     pipe_through :browser # Use the default browser stack
     get "/home", PageController, :home
-    forward "/", PageController, :index
+    forward "/app/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
