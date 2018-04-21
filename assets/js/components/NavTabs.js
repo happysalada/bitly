@@ -17,7 +17,7 @@ class NavTabs extends Component {
         centered
         value={this.props.page}
         color='primary'
-        onChange={() => {this.props.changePage()}}
+        onChange={(event, value) => {this.props.changePage(value)}}
       >
         <Tab label='Transactions' onClick={() => {this.props.history.push('/app/transactions')}} />
         <Tab label='Wallets' onClick={() => {this.props.history.push('/app/wallets')}} />
@@ -36,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changePage: () => dispatch(changePage())
+    changePage: (value) => dispatch(changePage(value))
   };
 };
 

@@ -33,6 +33,11 @@ export default function (state = initialState, action) {
         ...state,
         transactions: action.data
       }
+    case 'CHANGE_PAGE':
+      return {
+        ...state,
+        page: action.value
+      }
     default:
       return state;
   }
