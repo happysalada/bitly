@@ -52,7 +52,7 @@ export function getTransactions(accounts) {
   console.log('IN ACTIONS' ,accounts);
   return async dispatch => {
     try {
-      let transactionRequests = [];
+      //let transactionRequests = [];
       // accounts.map(account => {
       //   console.log(account);
       //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
