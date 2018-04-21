@@ -22,31 +22,34 @@
 
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <img src= "/images/PC.png" width="400">
-              <h1>Manage tax easy & quick  with BitDuty!</h1>
+              <img src= "/images/PC.png" width="450" text-align:center>
+              <h1>Cut off your waste time for tax with BitDuty!</h1>
               <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.
 </h2>
-              <button class="button">
-              Log In Button with E-mail
-              </button><br>
-              <button class="button">
-              Log In Button with facebook
-              </button><br>
-              <button class="button">
-              Log In Button with Gmail
-              </button>
+
+              <%= if @conn.assigns[:current_user] do %>
+                <h2>Welcome, <%= @current_user.name %>!</h2>
+                <img src="<%= @current_user.avatar %>" class="img-circle"/>
+                <%= link "Logout", to: "/auth/logout", method: :delete, class: "btn btn-danger" %>
+              <% else %>
+                <br>
+                <br>
+                <button class="mdc-button" href="/auth/google">
+                  <i class="fa fa-google"></i>
+                  Sign in with Google
+                </button>
+
+                <button class="mdc-button" href="/auth/github">
+                  <i class="fa fa-github"></i>
+                  Sign in with GitHub
+                </button>
+
+                <button class="mdc-button" href="/auth/facebook">
+                  <i class="fa fa-facebook"></i>
+                  Sign in with Facebook
+                </button>
+              <% end %>
               <p>By creating an account on BitDuty, you agree to our Terms and Privacy Policy.</p><br>
-            </div>
-            <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
-              <div class="form-wrap">
-                <div class="tab">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
         </div>
       </div>
     </div>
@@ -57,7 +60,6 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
           <h2>Merit</h2>
-          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
         </div>
       </div>
       <div class="row">
@@ -113,8 +115,8 @@
       <div class="row">
       </div>
       <div class="row">
-        <img src= "/images/2.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
-          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
+        <img src= "/images/2.png" width="100" height="100">          <h2>Track performance</h2>
+          <p>Get a clear picture of your BitDuty investments, including the current portfolio, your return on investment over time, and more.</p>
         </div>
       </div>
     </div>
@@ -124,8 +126,8 @@
       <div class="row">
       </div>
       <div class="row">
-        <img src= "/images/3.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
-          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
+        <img src= "/images/3.png" width="100" height="100">          <h2>Track every transaction</h2>
+          <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
         </div>
       </div>
     </div>
