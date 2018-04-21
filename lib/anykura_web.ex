@@ -1,12 +1,12 @@
-defmodule AnykuraWeb do
+defmodule BitdutyWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use AnykuraWeb, :controller
-      use AnykuraWeb, :view
+      use BitdutyWeb, :controller
+      use BitdutyWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,18 +19,18 @@ defmodule AnykuraWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: AnykuraWeb
+      use Phoenix.Controller, namespace: BitdutyWeb
 
       import Plug.Conn
-      import AnykuraWeb.Gettext
-      alias AnykuraWeb.Router.Helpers, as: Routes
+      import BitdutyWeb.Gettext
+      alias BitdutyWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/anykura_web/templates",
-                        namespace: AnykuraWeb
+      use Phoenix.View, root: "lib/bitduty_web/templates",
+                        namespace: BitdutyWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -38,9 +38,9 @@ defmodule AnykuraWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import AnykuraWeb.ErrorHelpers
-      import AnykuraWeb.Gettext
-      alias AnykuraWeb.Router.Helpers, as: Routes
+      import BitdutyWeb.ErrorHelpers
+      import BitdutyWeb.Gettext
+      alias BitdutyWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -55,7 +55,7 @@ defmodule AnykuraWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import AnykuraWeb.Gettext
+      import BitdutyWeb.Gettext
     end
   end
 

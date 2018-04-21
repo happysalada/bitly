@@ -1,5 +1,5 @@
-defmodule AnykuraWeb.PageController do
-  use AnykuraWeb, :controller
+defmodule BitdutyWeb.PageController do
+  use BitdutyWeb, :controller
 
   def index(conn, _params) do
     render conn, "index.html"

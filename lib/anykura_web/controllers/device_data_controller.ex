@@ -1,6 +1,6 @@
-defmodule AnykuraWeb.DeviceDataController do
-  use AnykuraWeb, :controller
-  alias AnykuraWeb.DeviceChannel
+defmodule BitdutyWeb.DeviceDataController do
+  use BitdutyWeb, :controller
+  alias BitdutyWeb.DeviceChannel
   require Logger
 
   def index(conn, %{"event" => event} = params) do

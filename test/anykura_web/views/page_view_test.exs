@@ -1,3 +1,3 @@
-defmodule AnykuraWeb.PageViewTest do
-  use AnykuraWeb.ConnCase, async: true
+defmodule BitdutyWeb.PageViewTest do
+  use BitdutyWeb.ConnCase, async: true
 end

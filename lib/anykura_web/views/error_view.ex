@@ -1,5 +1,5 @@
-defmodule AnykuraWeb.ErrorView do
-  use AnykuraWeb, :view
+defmodule BitdutyWeb.ErrorView do
+  use BitdutyWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

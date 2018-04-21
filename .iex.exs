@@ -1,1 +1,1 @@
-alias AnykuraWeb.Endpoint
+alias BitdutyWeb.Endpoint

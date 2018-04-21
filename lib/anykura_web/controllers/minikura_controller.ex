@@ -1,5 +1,5 @@
-defmodule AnykuraWeb.MinikuraController do
-  use AnykuraWeb, :controller
+defmodule BitdutyWeb.MinikuraController do
+  use BitdutyWeb, :controller
   require Logger
 
   def index(conn, _params) do

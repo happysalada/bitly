@@ -1,3 +1,3 @@
-defmodule AnykuraWeb.PageView do
-  use AnykuraWeb, :view
+defmodule BitdutyWeb.PageView do
+  use BitdutyWeb, :view
 end

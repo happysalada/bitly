@@ -1,5 +1,5 @@
-defmodule AnykuraWeb.PageControllerTest do
-  use AnykuraWeb.ConnCase
+defmodule BitdutyWeb.PageControllerTest do
+  use BitdutyWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

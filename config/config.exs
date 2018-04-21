@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :anykura,
-  ecto_repos: [Anykura.Repo]
+config :bitduty,
+  ecto_repos: [Bitduty.Repo]
 
 # Configures the endpoint
-config :anykura, AnykuraWeb.Endpoint,
+config :bitduty, BitdutyWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "plOFaVvSmC4vG291juSUMoG/b/aSsY+on2WkFvoCMQIcqX17bqxj9ZSk62HwCj91",
-  render_errors: [view: AnykuraWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Anykura.PubSub,
+  render_errors: [view: BitdutyWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Bitduty.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

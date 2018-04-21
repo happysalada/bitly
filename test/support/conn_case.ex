@@ -1,4 +1,4 @@
-defmodule AnykuraWeb.ConnCase do
+defmodule BitdutyWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule AnykuraWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias AnykuraWeb.Router.Helpers, as: Routes
+      alias BitdutyWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint AnykuraWeb.Endpoint
+      @endpoint BitdutyWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Anykura.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Bitduty.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Anykura.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Bitduty.Repo, {:shared, self()})
     end
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end

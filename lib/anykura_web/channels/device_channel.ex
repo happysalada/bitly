@@ -1,7 +1,7 @@
-defmodule AnykuraWeb.DeviceChannel do
-  use AnykuraWeb, :channel
+defmodule BitdutyWeb.DeviceChannel do
+  use BitdutyWeb, :channel
 
-  alias AnykuraWeb.Endpoint
+  alias BitdutyWeb.Endpoint
 
   def join("device:lobby", payload, socket) do
     if authorized?(payload) do

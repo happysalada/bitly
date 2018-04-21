@@ -1,4 +1,4 @@
-defmodule Anykura.DataCase do
+defmodule Bitduty.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule Anykura.DataCase do
 
   using do
     quote do
-      alias Anykura.Repo
+      alias Bitduty.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Anykura.DataCase
+      import Bitduty.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Anykura.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Bitduty.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Anykura.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Bitduty.Repo, {:shared, self()})
     end
 
     :ok

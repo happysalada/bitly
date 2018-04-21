@@ -1,5 +1,5 @@
-defmodule AnykuraWeb.Router do
-  use AnykuraWeb, :router
+defmodule BitdutyWeb.Router do
+  use BitdutyWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule AnykuraWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", AnykuraWeb do
+  scope "/api", BitdutyWeb do
 
     post "/device_data", DeviceDataController, :index
     get "/minikura", MinikuraController, :index
@@ -21,14 +21,14 @@ defmodule AnykuraWeb.Router do
     post "/minikura/delete", MinikuraController, :delete
   end
 
-  scope "/", AnykuraWeb do
+  scope "/", BitdutyWeb do
     pipe_through :browser # Use the default browser stack
 
     forward "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AnykuraWeb do
+  # scope "/api", BitdutyWeb do
   #   pipe_through :api
   # end
 end

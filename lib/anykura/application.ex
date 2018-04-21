@@ -1,4 +1,4 @@
-defmodule Anykura.Application do
+defmodule Bitduty.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,23 +9,23 @@ defmodule Anykura.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      Anykura.Repo,
+      Bitduty.Repo,
       # Start the endpoint when the application starts
-      AnykuraWeb.Endpoint,
-      # Starts a worker by calling: Anykura.Worker.start_link(arg)
-      # {Anykura.Worker, arg},
+      BitdutyWeb.Endpoint,
+      # Starts a worker by calling: Bitduty.Worker.start_link(arg)
+      # {Bitduty.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Anykura.Supervisor]
+    opts = [strategy: :one_for_one, name: Bitduty.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    AnykuraWeb.Endpoint.config_change(changed, removed)
+    BitdutyWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end

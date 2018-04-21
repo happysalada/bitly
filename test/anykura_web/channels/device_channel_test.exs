@@ -1,7 +1,7 @@
-defmodule AnykuraWeb.DeviceChannelTest do
-  use AnykuraWeb.ChannelCase
+defmodule BitdutyWeb.DeviceChannelTest do
+  use BitdutyWeb.ChannelCase
 
-  alias AnykuraWeb.DeviceChannel
+  alias BitdutyWeb.DeviceChannel
 
   setup do
     {:ok, _, socket} =

@@ -1,3 +1,3 @@
-defmodule AnykuraWeb.LayoutView do
-  use AnykuraWeb, :view
+defmodule BitdutyWeb.LayoutView do
+  use BitdutyWeb, :view
 end

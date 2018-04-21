@@ -1,4 +1,4 @@
-defmodule AnykuraWeb.ChannelCase do
+defmodule BitdutyWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule AnykuraWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint AnykuraWeb.Endpoint
+      @endpoint BitdutyWeb.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Anykura.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Bitduty.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Anykura.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Bitduty.Repo, {:shared, self()})
     end
     :ok
   end

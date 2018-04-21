@@ -1,5 +1,5 @@
-defmodule Anykura.Repo do
-  use Ecto.Repo, otp_app: :anykura
+defmodule Bitduty.Repo do
+  use Ecto.Repo, otp_app: :bitduty
 
   @doc """
   Dynamically loads the repository url from the

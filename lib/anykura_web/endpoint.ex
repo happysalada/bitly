@@ -1,14 +1,14 @@
-defmodule AnykuraWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :anykura
+defmodule BitdutyWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :bitduty
 
-  socket "/socket", AnykuraWeb.UserSocket
+  socket "/socket", BitdutyWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :anykura, gzip: false,
+    at: "/", from: :bitduty, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,10 +35,10 @@ defmodule AnykuraWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_anykura_key",
+    key: "_bitduty_key",
     signing_salt: "XqhDc0D3"
 
-  plug AnykuraWeb.Router
+  plug BitdutyWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.
