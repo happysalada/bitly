@@ -17,6 +17,7 @@ defmodule BitdutyWeb.Router do
   scope "/api", BitdutyWeb do
     pipe_through :browser
     get "/accounts", ApiController, :accounts
+    get "/accounts/:account_id/transactions", ApiController, :transactions
   end
 
   scope "/auth", BitdutyWeb do
