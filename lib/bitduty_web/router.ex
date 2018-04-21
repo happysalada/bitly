@@ -14,7 +14,7 @@ defmodule BitdutyWeb.Router do
   end
 
   scope "/api", BitdutyWeb do
-
+    get "/accounts", ApiController, :accounts
   end
 
   scope "/auth", BitdutyWeb do
