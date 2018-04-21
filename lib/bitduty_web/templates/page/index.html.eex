@@ -39,7 +39,7 @@
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
               <h1>Robot Tax Adviser!</h1>
-              <%= if @conn.assigns[:current_user] do %>
+              <%= if @current_user do %>
                 <h2>Welcome, <%= @current_user.name %>!</h2>
                 <img src="<%= @current_user.avatar %>" class="img-circle"/>
                 <%= link "Logout", to: "/auth/logout", method: :delete, class: "btn btn-danger" %>

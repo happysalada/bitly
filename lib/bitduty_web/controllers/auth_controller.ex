@@ -39,7 +39,7 @@ defmodule BitdutyWeb.AuthController do
     conn
     |> put_session(:current_user, user)
     |> put_session(:access_token, client.token.access_token)
-    |> redirect(to: "/app/dashboard")
+    |> redirect(to: "/app/transactions")
   end
 
   defp authorize_url!("coinbase"),
@@ -60,11 +60,10 @@ defmodule BitdutyWeb.AuthController do
   defp get_token!(_, _), do: raise("No matching provider available")
 
   defp get_user!("coinbase", client) do
-    %{body: user} =
+    %{body: %{"data" => user}} =
       OAuth2.Client.get!(client, "https://api.coinbase.com/v2/user")
-      |> IO.inspect()
 
-    %{name: user["name"], avatar: user["picture"]}
+    %{name: user["name"], avatar: user["avatar_url"]}
   end
 
   defp get_user!("google", client) do
