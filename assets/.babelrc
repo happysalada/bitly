@@ -5,6 +5,7 @@
     "plugins": [
         "transform-react-jsx",
         "transform-object-rest-spread",
+        "transform-runtime",
         ["transform-class-properties", { "spec": true }]
     ]
 }
