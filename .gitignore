@@ -3,3 +3,5 @@
 /_build
 /assets/node_modules
 /deps
+.env
+/priv/static
