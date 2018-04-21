@@ -57,7 +57,10 @@ export function getTransactions(accounts) {
       //   console.log(account);
       //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
       // })
-      const responses = await Promise.all(accounts.map(account => fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'})))
+      const responses = await accounts.reduce(async (acc, account) => {
+        responseSoFar = await Promise.all(acc)
+        return responseSoFar.concat(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'})))
+      }, Promise.resolve([]));
       const responsesJson = await Promise.all(responses.map(response => response.json()));
       const data = responsesJson.reduce((acc, {body}) => acc.concat(JSON.parse(body)), []);
 
