@@ -25,11 +25,8 @@
     "react-device-detect": "^0.1.0",
     "react-dom": "^16.3.2",
     "react-google-maps": "^9.4.5",
-<<<<<<< HEAD
     "react-map-gl": "^3.2.7",
-=======
     "react-moment": "^0.7.0",
->>>>>>> 40b841587d4f438e7b6838167268fd42aa28a6f1
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
