@@ -46,8 +46,9 @@ defmodule BitdutyWeb.AuthController do
     do:
       Coinbase.authorize_url!(
         response_type: "code",
+        account: "all",
         scope:
-          "wallet:user:read,wallet:accounts:read,wallet:transactions:read,wallet:addresses:read"
+          "wallet:user:read,wallet:accounts:read,wallet:transactions:read,wallet:buys:read,wallet:deposits:read,wallet:sells:read,wallet:addresses:read,wallet:user:email"
       )
 
   defp authorize_url!("google"),
