@@ -20,7 +20,7 @@ defmodule Bitduty.Mixfile do
   def application do
     [
       mod: {Bitduty.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :oauth2]
     ]
   end
 
@@ -42,7 +42,8 @@ defmodule Bitduty.Mixfile do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
-      {:httpoison, "~> 1.0"}
+      {:httpoison, "~> 1.0"},
+      {:oauth2, "~> 0.9"}
     ]
   end
 

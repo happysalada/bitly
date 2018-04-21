@@ -21,10 +21,15 @@ module.exports = (env, options) => ({
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: {
-            loader: 'css-loader',
-            options: { minimize: options.mode === 'production' }
-          }
+          use: [
+            {
+              loader: 'css-loader',
+              options: { minimize: options.mode === 'production' }
+            },
+            {
+              loader: 'sass-loader' // compiles Sass to CSS
+            }
+          ]
         })
       },
       {

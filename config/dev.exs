@@ -59,3 +59,13 @@ config :bitduty, Bitduty.Repo,
   database: "bitduty_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :bitduty, Google,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
+  redirect_uri: System.get_env("GOOGLE_REDIRECT_URI")
+
+config :bitduty, Coinbase,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET"),
+  redirect_uri: System.get_env("GOOGLE_REDIRECT_URI")
