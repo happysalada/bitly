@@ -90,6 +90,9 @@ class WalletPage extends Component {
   }
 }
 
+
+
+
 const mapStateToProps = state => {
   return {
     currentState: state,
