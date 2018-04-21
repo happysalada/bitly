@@ -43,7 +43,8 @@ defmodule Bitduty.Mixfile do
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.0"},
-      {:oauth2, "~> 0.9"}
+      {:oauth2, "~> 0.9"},
+      {:poison, "~> 3.1"}
     ]
   end
 
