@@ -58,8 +58,17 @@ defmodule BitdutyWeb.AuthController do
 
   defp authorize_url!(_), do: raise("No matching provider available")
 
+  defp get_token!("coinbase", code), do: Coinbase.get_token!(code: code, grant_type: "authorization_code")
   defp get_token!("google", code), do: Google.get_token!(code: code)
   defp get_token!(_, _), do: raise("No matching provider available")
+
+  defp get_user!("coinbase", client) do
+    %{body: user} =
+      OAuth2.Client.get!(client, "https://api.coinbase.com/v2/user")
+      |> IO.inspect()
+
+    %{name: user["name"], avatar: user["picture"]}
+  end
 
   defp get_user!("google", client) do
     %{body: user} =

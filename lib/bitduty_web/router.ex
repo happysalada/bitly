@@ -17,6 +17,14 @@ defmodule BitdutyWeb.Router do
 
   end
 
+  scope "/auth", BitdutyWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :index
+    get "/:provider/callback", AuthController, :callback
+    delete "/logout", AuthController, :delete
+  end
+
   scope "/", BitdutyWeb do
     pipe_through :browser # Use the default browser stack
     get "/home", PageController, :home
