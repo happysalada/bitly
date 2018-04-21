@@ -6,7 +6,7 @@
 
       <div class="row">
         <div class="col-sm-4 col-xs-12">
-          <div id="gtco-logo"><a href="index.html">BitDuty <em>.</em></a></div>
+          <div id="gtco-logo"><img src= "/images/db.png" width="30"><a href="index.html">BitDuty <em>.</em></a></div>
         </div>
         <div class="col-xs-8 text-right menu-1">
         </div>
@@ -22,7 +22,7 @@
 
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <img src= ../../../../assets/img/PC.png>
+              <img src= "/images/PC.png" width="400">
               <h1>Manage tax easy & quick  with BitDuty!</h1>
               <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.
 </h2>
@@ -63,27 +63,21 @@
       <div class="row">
         <div class="col-md-4 col-sm-6">
           <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>1</i>
-            </span>
+              <img src= "/images/1.png" width="100" height="100">
             <h3>BitDuty taxes made easy</h3>
             <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>2</i>
-            </span>
+              <img src= "/images/2.png" width="100" height="100">
             <h3>Track performance</h3>
             <p>Get a clear picture of your BitDuty investments, including the current portfolio, your return on investment over time, and more.</p>
           </div>
         </div>
         <div class="col-md-4 col-sm-6">
           <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>3</i>
-            </span>
+              <img src= "/images/3.png" width="100" height="100">
             <h3>Track every transaction</h3>
             <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
           </div>
@@ -106,143 +100,41 @@
   <div id="gtco-features-2">
     <div class="gtco-container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-          <h2>Solution</h2>
-          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-        </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>1</i>
-            </span>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div>
+        <img src= "/images/1.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
+          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>2</i>
-            </span>
-            <h3>Consectetur adipisicing elit</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>3</i>
-            </span>
-            <h3>Dignissimos asperiores vitae</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div><!DOCTYPE html>
-          <html>
-          <head>
-            <title></title>
-          </head>
-          <body>
-          
-          </body>
-          </html>
-        </div>
-      </div>
       </div>
     </div>
-
 
   <div id="gtco-features">
     <div class="gtco-container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-          <h2>How It Works</h2>
-          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-        </div>
       </div>
       <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>1</i>
-            </span>
-            <h3>Lorem ipsum dolor sit amet</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div>
+        <img src= "/images/2.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
+          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>2</i>
-            </span>
-            <h3>Consectetur adipisicing elit</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-            <span class="icon">
-              <i>3</i>
-            </span>
-            <h3>Dignissimos asperiores vitae</h3>
-            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
 
-  <div id="gtco-counter" class="gtco-section">
+    <div id="gtco-features-2">
     <div class="gtco-container">
-
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-          <h2>Market</h2>
-          <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+      </div>
+      <div class="row">
+        <img src= "/images/3.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
+          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-          <div class="feature-center">
-            <span class="counter js-counter" data-from="0" data-to="196" data-speed="5000" data-refresh-interval="50">$150 Billion</span>
-            <span class="counter-label">Amount($)</span>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-          <div class="feature-center">
-            <span class="counter js-counter" data-from="0" data-to="196" data-speed="5000" data-refresh-interval="50">17 Million BTC</span>
-            <span class="counter-label">Amount</span>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-          <div class="feature-center">
-            <span class="counter js-counter" data-from="0" data-to="12202" data-speed="5000" data-refresh-interval="50">30 million</span>
-            <span class="counter-label">Happy Customer</span>
-
-          </div>
-        </div>
-      </div>        
+     
     </div>
   </div>
 
 
-
-  <footer id="gtco-footer" role="contentinfo">
-    <div class="gtco-container">
-      <div class="row row-p b-md">
-
-        <div class="col-md-4">
-          <div class="gtco-widget">
-            <h3>About Us</h3>
-            <p>Explain about Team</p>
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
   </footer>
   <!-- </div> -->
   </div>
