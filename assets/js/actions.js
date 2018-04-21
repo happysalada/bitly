@@ -52,15 +52,19 @@ export function getTransactions(accounts) {
   console.log('IN ACTIONS' ,accounts);
   return async dispatch => {
     try {
-      let transactionRequests = [];
+      //let transactionRequests = [];
       // accounts.map(account => {
       //   console.log(account);
       //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
       // })
-      const response = await fetch(`/api/accounts/${accounts[1]}/transactions`, {credentials: 'same-origin'})
+      //const response = await fetch(`/api/accounts/${accounts[1]}/transactions`, {credentials: 'same-origin'})
       //const response = await Promise.all(transactionRequests);
-      const {body} = await response.json(); //Promise.all(response.map(list => list.json()));
-      const {data} = JSON.parse(body);
+      //const {body} = await response.json(); //Promise.all(response.map(list => list.json()));
+      //const {data} = JSON.parse(body);
+      const responses = await Promise.all(accounts.map(account => fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'})))
+      const responsesJson = await Promise.all(responses.map(response => response.json()));
+      const data = responsesJson.reduce((acc, {body}) => acc.concat(JSON.parse(body)), []);
+
       dispatch({type: 'UPDATE_TRANSACTIONS', data})
     } catch ({message}) {
       console.log(message)
