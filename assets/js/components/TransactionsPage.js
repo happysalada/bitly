@@ -16,29 +16,62 @@ import Table, {
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
+import Moment from 'react-moment';
+import { getAccounts, getTransactions } from '../actions';
+import NavTabs from './NavTabs';
 
 class TransactionsPage extends Component {
 
+  state = {
+    update: true
+  }
+
   styles = {
     currencyImg: {
-      width: '20%',
+      height: '45px',
+      width: '45px',
+      margin: '20px'
     },
     typeImg: {
-      width: '25%',
-      marginLeft: '10px'
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.accounts && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+    } else {
+      this.props.getAccounts();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.accounts && !this.props.transactions && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+      this.setState({update: false});
     }
   }
 
   getCurrencyImg(currency) {
     switch (currency) {
       case 'USD':
-        return 'https://placehold.it/500x500';
+        return '/images/dollar.png';
       case 'BTC':
-        return 'https://placehold.it/500x500';
+        return '/images/bitcoin.png';
       case 'LTC':
-        return 'https://placehold.it/500x500';
+        return '/images/litecoin.svg';
       case 'ETH':
-        return 'https://placehold.it/500x500';
+        return '/images/ether.png';
+    }
+  }
+
+  getTypeImg(type) {
+    switch (type) {
+      case 'buy':
+        return '/images/recieve.png';
+      case 'sell':
+        return '/images/dollar.png';
+      case 'send':
+        return '/images/send.png';
     }
   }
 
@@ -46,83 +79,99 @@ class TransactionsPage extends Component {
     switch (place) {
       case 'coinbase':
         return 'Coinbase Exchange'
+      case 'address':
+        return 'fsfsdf24'
+    }
+  }
+
+  getDateType(type, date) {
+    let msg = null;
+    const momentDate = <Moment format="MMM DD YY">{date}</Moment>;
+    switch (type) {
+      case 'buy':
+        msg = 'Recieved';
+        break;
+      case 'sell':
+        msg = 'Sold';
+        break;
+      case 'send':
+        msg = 'Sent';
+        break;
+      default:
+        msg = 'error';
+    }
+    return (
+      <React.Fragment>
+        <Typography style={{ fontSize: '14px', fontWeight: 'bold' }}>{msg || 'error'}</Typography>
+        <Typography style={{ fontSize: '12px' }}>{momentDate || 'error'}</Typography>
+      </React.Fragment>
+    )
+  }
+
+  getStatus(status) {
+    switch (status) {
+      case 'pending':
+        return (
+          <React.Fragment>
+            <span style={{ width: '3px', height: '3px', border: '3px solid grey', borderRadius: '3px', display: 'inline-block', marginRight: '2px' }}></span>
+            <span>Pending</span>
+          </React.Fragment>
+        )
+      case 'completed':
+        return (
+          <React.Fragment>
+            <span style={{ width: '3px', height: '3px', border: '3px solid green', borderRadius: '3px', display: 'inline-block', marginRight: '2px' }}></span>
+            <span>Complete</span>
+          </React.Fragment>
+        )
     }
   }
 
 
   render() {
-    const currentTransactions = this.props.transactions.map((transaction) => {
-      switch (transaction.type) {
-        case 'buy':
-          return (
-            <TableRow key={transaction.id}>
-              <TableCell>
-                <img style={this.styles.typeImg} src='https://placehold.it/500x500' alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <Typography>{this.getPlace(transaction.exchange || 'address')}</Typography>
-                <Typography>Ammount</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography>place</Typography>
-                <Typography>Ammount</Typography>
-              </TableCell>
-              <TableCell>
-                <Icon>arrow_drop_down_circle</Icon>
-              </TableCell>
-            </TableRow>
-          )
-        case 'sell':
-          return (
-            <TableRow key={transaction.id}>
-              <TableCell>
-                <img style={this.styles.typeImg} src='https://placehold.it/500x500' alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <Typography>{this.getPlace(transaction.exchange || 'address')}</Typography>
-                <Typography>Ammount</Typography>
-              </TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          )
-        case 'send':
-          return (
-            <TableRow key={transaction.id}>
-              <TableCell>
-                <img style={this.styles.typeImg} src='https://placehold.it/500x500' alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
-              </TableCell>
-              <TableCell>
-                <Typography>{this.getPlace(transaction.exchange || 'address')}</Typography>
-                <Typography>Ammount</Typography>
-              </TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          )
-      }
-    });
+    const currentTransactions = this.props.transactions ? this.props.transactions.map((transaction) => {
+      return (
+        <TableRow key={transaction.id}>
+          <TableCell style={{ textAlign: 'center' }}>
+            <img style={this.styles.typeImg} src={this.getTypeImg(transaction.type)} alt='currency img' />
+          </TableCell>
+          <TableCell>
+            <span>
+              {this.getDateType(transaction.type, transaction.created_at)}
+              {<Typography>{this.getStatus(transaction.status)}</Typography>}
+            </span>
+          </TableCell>
+          <TableCell style={{ textAlign: 'center' }}>
+            <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
+          </TableCell>
+          <TableCell>
+            <Typography style={{ fontSize: '12px' }}>{this.getPlace(transaction.exchange || 'address')}</Typography>
+            <Typography style={{ fontSize: '12px', fontWeight: 'bold' }}>{`${transaction.amount.amount} ${transaction.amount.currency}`}</Typography>
+            <Typography>{`${transaction.native_amount.amount} ${transaction.native_amount.currency}` || ''}</Typography>
+          </TableCell>
+          <TableCell>
+            <Icon>arrow_drop_down_circle</Icon>
+          </TableCell>
+        </TableRow>
+      )
+    }) : <TableRow><TableCell><Typography component='span'>No Transactions</Typography></TableCell></TableRow>;
 
 
     return (
       <React.Fragment>
-        <AppBar position='static'>
-          <Toolbar>
+        <AppBar position='static' style={{margin: 0}}>
+          <Toolbar disableGutters>
             <Button onClick={() => { console.log(this.props.currentState) }}>GET STATE</Button>
+            <Button onClick={() => { this.props.getAccounts(); }}>GET ACCOUNTS</Button>
+            <Button onClick={() => { this.props.history.push('/app/wallets') }}>WALLETS</Button>
             <span style={{ flex: 1 }}></span>
             <Typography variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>
+        <NavTabs />
         <Paper style={{ width: '90%', margin: 'auto' }}>
-          <Table style={{ minWidth: '700px' }}>
+          <Table>
             <TableBody>
               {currentTransactions}
             </TableBody>
@@ -136,12 +185,16 @@ class TransactionsPage extends Component {
 const mapStateToProps = state => {
   return {
     currentState: state,
-    transactions: state.transactions
+    transactions: state.transactions,
+    wallets: state.wallets,
+    accounts: state.accounts
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    getAccounts: () => dispatch(getAccounts()),
+    getTransactions: (accounts) => dispatch(getTransactions(accounts))
   };
 };
 

@@ -1,4 +1,4 @@
-import {Socket} from 'phoenix';
+import { Socket } from 'phoenix';
 
 export function connectToChannel() {
   return dispatch => {
@@ -8,17 +8,17 @@ export function connectToChannel() {
 
     channel.on('button_one_pressed', () => {
       console.log('button one pressed');
-      dispatch({type: 'PICK_UP'});
+      dispatch({ type: 'PICK_UP' });
     });
 
     channel.on('button_two_pressed', () => {
       console.log('button two pressed');
-      dispatch({type: 'DELIVERED'});
+      dispatch({ type: 'DELIVERED' });
     });
 
     channel.on('button_three_pressed', () => {
       console.log('shock');
-      dispatch({type: 'SHOCK'});
+      dispatch({ type: 'SHOCK' });
     });
 
     channel.join().receive('ok', () => {
@@ -32,20 +32,45 @@ export function connectToChannel() {
 export function leaveChannel(channel) {
   return dispatch => {
     if (channel) channel.leave();
-    dispatch({type: 'LIVE_UPDATE_OFF'});
+    dispatch({ type: 'LIVE_UPDATE_OFF' });
   };
 }
 
-export function updateItems() {
-  return dispatch => {
-    fetch('/api/minikura')
-      .then(response => response.json())
-      .then(({status, results}) => {
-        if (status === '1') dispatch({
-          type: 'UPDATE_ITEMS',
-          items: results
-        });
-      })
-      .catch(error => console.log(error));
+export function getAccounts() {
+  return async dispatch => {
+    try {
+      const response = await fetch('/api/accounts', {credentials: 'same-origin'})
+      const {body} = await response.json()
+      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)})
+    } catch ({message}) {
+      console.log(message)
+    }
   };
 }
+
+export function getTransactions(accounts) {
+  console.log('IN ACTIONS' ,accounts);
+  return async dispatch => {
+    try {
+      let transactionRequests = [];
+      // accounts.map(account => {
+      //   console.log(account);
+      //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
+      // })
+      const responses = await Promise.all(accounts.map(account => fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'})))
+      const responsesJson = await Promise.all(responses.map(response => response.json()));
+      const data = responsesJson.reduce((acc, {body}) => acc.concat(JSON.parse(body)), []);
+
+      dispatch({type: 'UPDATE_TRANSACTIONS', data})
+    } catch ({message}) {
+      console.log(message)
+    }
+  };
+}
+
+export function changePage() {
+  return dispatch => {
+    dispatch({type: 'CHANGE_PAGE', which: action})
+  }
+}
+

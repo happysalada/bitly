@@ -3,6 +3,9 @@ import {Route} from 'react-router-dom';
 import HomePage from './components/HomePage';
 import TransactionsPage from './components/TransactionsPage';
 import WalletPage from './components/WalletPage';
+import WidgetPage from './components/WidgetPage';
+
+import {withRouter} from 'react-router-dom';
 
 class MainApp extends Component {
   render() {
@@ -10,6 +13,7 @@ class MainApp extends Component {
       <React.Fragment>
         <Route path='/app/' exact component={HomePage} />
         <Route path='/app/transactions' exact component={TransactionsPage} />
+        <Route path='/app/wallets' exact component={WalletPage} />
       </React.Fragment>
     );
   }

@@ -11,10 +11,13 @@ defmodule BitdutyWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
   end
 
   scope "/api", BitdutyWeb do
-
+    pipe_through :browser
+    get "/accounts", ApiController, :accounts
+    get "/accounts/:account_id/transactions", ApiController, :transactions
   end
 
   scope "/auth", BitdutyWeb do
