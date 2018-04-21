@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 
 
-class WalletPage extends Component {
+class WidgetPage extends Component {
 
   render() {
     return (
-      <h1>WALLET PAGE</h1>
+      <h1>WIDGET PAGE</h1>
 
 
 
@@ -31,7 +31,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(WalletPage);
+)(WidgetPage);
