@@ -3,7 +3,20 @@
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
+  * (if you don't install postgresql)
+    On Mac OS to get up and running fast (with say Phoenix) simply run:
+
+    $brew install postgresql && brew services start postgresql && psql postgres  
+    then type:  
+  
+    CREATE ROLE postgres;  
+    ALTER ROLE postgres WITH LOGIN;  
+    ALTER USER postgres CREATEDB;  
+    then CTRL & D  
+    $mix ecto.create  
+  * Create and migrate your database with `mix ecto.setup`  
+    Then you should make .gitkeep(if you have error)  
+    $ vim priv/repo/migrations/.gitkeep   
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `LOGGY_STACKS=1 MIX_ENV=dev iex -S mix phx.server`
 
