@@ -10,6 +10,7 @@ class MainApp extends Component {
       <React.Fragment>
         <Route path='/app/' exact component={HomePage} />
         <Route path='/app/transactions' exact component={TransactionsPage} />
+        <Route path='/app/wallets' exact component={WalletPage} />
       </React.Fragment>
     );
   }

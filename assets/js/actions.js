@@ -41,9 +41,28 @@ export function getAccounts() {
     try {
       const response = await fetch('/api/accounts', {credentials: 'same-origin'})
       const {body} = await response.json()
-      console.log(body)
+      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)})
     } catch ({message}) {
       console.log(message)
     }
   };
 }
+
+export function getTransactions() {
+  return async dispatch => {
+    try {
+      const response = await fetch('/api/transactions', {credentials: 'same-origin'})
+      const {body} = await response.json()
+      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)})
+    } catch ({message}) {
+      console.log(message)
+    }
+  };
+}
+
+export function changePage() {
+  return dispatch => {
+    dispatch({type: 'CHANGE_PAGE', which: action})
+  }
+}
+

@@ -1,4 +1,5 @@
 const initialState = {
+  page: 0,
   transactions: [
     {
       "exchange": "coinbase",
@@ -91,7 +92,8 @@ const initialState = {
         "subtitle": "using Capital One Bank"
       }
     },
-  ]
+  ],
+  wallets: null
 };
 
 export default function (state = initialState, action) {
@@ -104,6 +106,12 @@ export default function (state = initialState, action) {
       }
     case 'LIVE_UPDATE_OFF':
       return initialState;
+    case 'UPDATE_ACCOUNTS':
+      console.log(action.data);
+      return {
+        ...state,
+        wallets: action.data
+      }
     default:
       return state;
   }

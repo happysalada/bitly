@@ -17,27 +17,36 @@ import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
 import Icon from 'material-ui/Icon';
 import Moment from 'react-moment';
-import { getAccounts } from '../actions'
+import { getAccounts, getTransactions } from '../actions';
+import NavTabs from './NavTabs';
 
 class TransactionsPage extends Component {
 
   styles = {
     currencyImg: {
+      height: '45px',
+      width: '45px',
+      margin: '20px'
     },
     typeImg: {
     }
   }
 
+  componentDidMount() {
+    //this.props.getAccounts();
+    //this.props.getTransactions();
+  }
+
   getCurrencyImg(currency) {
     switch (currency) {
       case 'USD':
-        return 'https://placehold.it/80x80';
+        return '/images/dollar.png';
       case 'BTC':
-        return 'https://placehold.it/80x80';
+        return '/images/bitcoin.png';
       case 'LTC':
-        return 'https://placehold.it/80x80';
+        return '/images/litecoin.svg';
       case 'ETH':
-        return 'https://placehold.it/80x80';
+        return '/images/ether.png';
     }
   }
 
@@ -57,7 +66,7 @@ class TransactionsPage extends Component {
       case 'coinbase':
         return 'Coinbase Exchange'
       case 'address':
-        return '***********fsfsdf24*********'
+        return 'fsfsdf24'
     }
   }
 
@@ -136,15 +145,17 @@ class TransactionsPage extends Component {
 
     return (
       <React.Fragment>
-        <AppBar position='static'>
-          <Toolbar>
+        <AppBar position='static' style={{margin: 0}}>
+          <Toolbar disableGutters>
             <Button onClick={() => { console.log(this.props.currentState) }}>GET STATE</Button>
             <Button onClick={() => { this.props.getAccounts(); }}>GET ACCOUNTS</Button>
+            <Button onClick={() => { this.props.history.push('/app/wallets') }}>WALLETS</Button>
             <span style={{ flex: 1 }}></span>
             <Typography variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>
+        <NavTabs />
         <Paper style={{ width: '90%', margin: 'auto' }}>
           <Table>
             <TableBody>
@@ -166,7 +177,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getAccounts: () => dispatch(getAccounts())
+    getAccounts: () => dispatch(getAccounts()),
+    getTransactions: () => dispatch(getTransactions())
   };
 };
 
