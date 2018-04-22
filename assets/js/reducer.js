@@ -30,11 +30,19 @@ export default function (state = initialState, action) {
         accounts: accounts
       }
     case 'UPDATE_TRANSACTIONS':
-      const income = action.transactions.map(transaction => {
-        
-      });
+      const income = action.transactions.reduce((acc, transaction) => {
+        const {amount, currency} = transaction.amount;
+        const originalAmount = acc[currency]
+        if (originalAmount) {
+          acc[currency] = originalAmount + Number(amount)
+          return acc;
+        }
+        acc[currency] = Number(amount);
+        return acc;
+      }, {});
       return {
         ...state,
+        income,
         transactions: action.transactions
       }
     case 'CHANGE_PAGE':
