@@ -19,6 +19,14 @@ import Grid from 'material-ui/Grid';
 
 class TaxPage extends Component {
   render() {
+    const incomes = Object.entries(this.props.incomes).map(currency => {
+      return (
+        <TableRow>
+            <TableCell>{currency[0]}</TableCell>
+            <TableCell>{currency[1]}</TableCell>
+        </TableRow>
+      )
+    });
     return (
       <React.Fragment>
       <AppBar position='static' style={{margin: 0}}>
@@ -33,7 +41,8 @@ class TaxPage extends Component {
       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
       <Table>
           <TableBody>
-            </TableBody>
+            {incomes}
+          </TableBody>
           </Table>
       </Grid>
     </Grid>
@@ -45,6 +54,7 @@ class TaxPage extends Component {
 
 const mapStateToProps = state => {
   return {
+    incomes: state.income
   };
 };
 
