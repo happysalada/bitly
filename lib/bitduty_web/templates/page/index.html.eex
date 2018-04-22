@@ -17,20 +17,19 @@
     </div>
   </nav>
 
-  <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(images/img_bg_2.jpg)">
-    <div class="overlay"></div>
+  <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner">
     <div class="gtco-container">
       <div class="row">
         <div class="col-md-12 col-md-offset-0 text-left">
 
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <h1 style="margin-top: 25%;">Effortless tax declaration on crypto!</h1>
-              <h2>Declare and optimize your taxes on crypto gains in one click</h2>
+              <h1 style="margin-top: 25%;color:black;">Effortless tax declaration on crypto!</h1>
+              <h2 style="color:black;">Declare and optimize your taxes on crypto gains in one click</h2>
               <%= if @current_user do %>
                 <h3>Welcome, <%= @current_user.name %>!</h3>
                 <a href="/app/transactions">
-                  <button class="mdc-button" >
+                  <button class="mdc-button" style="background-color:#673AB7">
                     My transactions
                   </button>
                 </a>
@@ -38,13 +37,13 @@
                 <br>
                 <br>
                 <a href="/auth/coinbase">
-                  <button class="mdc-button" >
+                  <button class="mdc-button" style="background-color:#673AB7">
                     <i class="fa fa-google"></i>
                     Sign in with Coinbase
                   </button>
                 </a>
                 <a href="/auth/google">
-                  <button class="mdc-button" >
+                  <button class="mdc-button" style="background-color:#673AB7">
                     <i class="fa fa-google"></i>
                     Sign in with Google
                   </button>

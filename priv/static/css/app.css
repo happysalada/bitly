@@ -380,7 +380,7 @@ figure {
 }
 
 #gtco-header {
-  background: #4d4d4d;
+  background: #FFF;
 }
 @media screen and (max-width: 992px) {
   #gtco-header.gtco-cover {
