@@ -1,4 +1,5 @@
-import { Socket } from 'phoenix';
+import {Socket} from 'phoenix';
+import moment from 'moment';
 
 export function connectToChannel() {
   return dispatch => {
@@ -8,17 +9,17 @@ export function connectToChannel() {
 
     channel.on('button_one_pressed', () => {
       console.log('button one pressed');
-      dispatch({ type: 'PICK_UP' });
+      dispatch({type: 'PICK_UP'});
     });
 
     channel.on('button_two_pressed', () => {
       console.log('button two pressed');
-      dispatch({ type: 'DELIVERED' });
+      dispatch({type: 'DELIVERED'});
     });
 
     channel.on('button_three_pressed', () => {
       console.log('shock');
-      dispatch({ type: 'SHOCK' });
+      dispatch({type: 'SHOCK'});
     });
 
     channel.join().receive('ok', () => {
@@ -32,28 +33,31 @@ export function connectToChannel() {
 export function leaveChannel(channel) {
   return dispatch => {
     if (channel) channel.leave();
-    dispatch({ type: 'LIVE_UPDATE_OFF' });
+    dispatch({type: 'LIVE_UPDATE_OFF'});
   };
 }
 
 export function getAccounts() {
   return async dispatch => {
     try {
-      const response = await fetch('/api/accounts', {credentials: 'same-origin'})
-      const {body} = await response.json()
-      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)})
+      const response = await fetch('/api/accounts', {
+        credentials: 'same-origin'
+      });
+      const {body} = await response.json();
+      dispatch({type: 'UPDATE_ACCOUNTS', data: JSON.parse(body)});
     } catch ({message}) {
-      console.log(message)
+      console.log(message);
     }
   };
 }
 
 export function getTransactions(accounts) {
-  console.log('IN ACTIONS' ,accounts);
   return async dispatch => {
     const transactions = await accounts.reduce(async (acc, account) => {
       try {
-        const response = await fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'});
+        const response = await fetch(`/api/accounts/${account}/transactions`, {
+          credentials: 'same-origin'
+        });
         const {body} = await response.json();
         const dataSoFar = await acc;
         if (body) {
@@ -65,13 +69,14 @@ export function getTransactions(accounts) {
         return acc;
       }
     }, []);
-    console.log('TRANSACTIONS', transactions)
-    dispatch({type: 'UPDATE_TRANSACTIONS', transactions});
+    const sortedTransactions = transactions.sort(({created_at: firstCreateAt}, {create_at: secondCreatedAt}) =>
+      moment(firstCreateAt).diff(moment(secondCreatedAt)));
+    dispatch({type: 'UPDATE_TRANSACTIONS', sortedTransactions});
   };
 }
 
 export function changePage(value) {
   return dispatch => {
-    dispatch({type: 'CHANGE_PAGE', value: value})
-  }
+    dispatch({type: 'CHANGE_PAGE', value});
+  };
 }
