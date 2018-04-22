@@ -4,11 +4,14 @@
   <nav class="gtco-nav" role="navigation">
     <div class="gtco-container">
 
-      <div class="row">
+      <div style="display:flex;justify-content:space-between" class="row">
         <div class="col-sm-4 col-xs-12">
           <div id="gtco-logo"><img src= "/images/db.png" width="30"><a href="index.html">BitDuty <em>.</em></a></div>
         </div>
         <div class="col-xs-8 text-right menu-1">
+          <%= if @current_user do %>
+            <%= link "Logout", to: "/auth/logout", method: :delete, class: "btn btn-danger" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -22,13 +25,15 @@
 
           <div class="row row-mt-15em">
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <img src= "/images/PC.png" width="450" text-align:center>
-              <h1>Cut off your waste time for tax with BitDuty!</h1>
-              <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.</h2>
+              <h1 style="margin-top: 25%;">Effortless tax declaration on crypto!</h1>
+              <h2>Declare and optimize your taxes on crypto gains in one click</h2>
               <%= if @current_user do %>
                 <h3>Welcome, <%= @current_user.name %>!</h3>
-                <img src="<%= @current_user.avatar %>" class="img-circle"/>
-                <%= link "Logout", to: "/auth/logout", method: :delete, class: "btn btn-danger" %>
+                <a href="/app/transactions">
+                  <button class="mdc-button" >
+                    My transactions
+                  </button>
+                </a>
               <% else %>
                 <br>
                 <br>
@@ -44,8 +49,8 @@
                     Sign in with Google
                   </button>
                 </a>
+                <p>By creating an account on BitDuty, you agree to our Terms and Privacy Policy.</p><br>
               <% end %>
-              <p>By creating an account on BitDuty, you agree to our Terms and Privacy Policy.</p><br>
         </div>
       </div>
     </div>
