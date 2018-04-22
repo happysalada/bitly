@@ -131,7 +131,7 @@ figure {
 }
 .gtco-nav a {
   padding: 5px 10px;
-  color: #fff;
+  color: #673AB7;
 }
 @media screen and (max-width: 768px) {
   .gtco-nav .menu-1,
