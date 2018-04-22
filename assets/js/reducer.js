@@ -2,7 +2,9 @@ const initialState = {
   page: 0,
   transactions: null,
   wallets: null,
-  accounts: null
+  accounts: null,
+  incomeBTC: 0,
+  incomeUSD: 0
 };
 
 export default function (state = initialState, action) {
@@ -28,6 +30,7 @@ export default function (state = initialState, action) {
         accounts: accounts
       }
     case 'UPDATE_TRANSACTIONS':
+      console.log('TRANSACTIONS', action.transactions);
       return {
         ...state,
         transactions: action.transactions

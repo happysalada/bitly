@@ -69,8 +69,10 @@ export function getTransactions(accounts) {
         return acc;
       }
     }, []);
-    const sortedTransactions = transactions.sort(({created_at: firstCreateAt}, {create_at: secondCreatedAt}) =>
-      moment(firstCreateAt).diff(moment(secondCreatedAt)));
+    const sortedTransactions = transactions.sort(({created_at: firstCreatedAt}, {created_at: secondCreatedAt}) => {
+      console.log(moment(firstCreatedAt).diff(moment(secondCreatedAt)));
+      return moment(firstCreatedAt).diff(moment(secondCreatedAt));
+    });
     dispatch({type: 'UPDATE_TRANSACTIONS', sortedTransactions});
   };
 }
