@@ -66,7 +66,6 @@ class TransactionsPage extends Component {
   }
 
   getTypeImg(type) {
-    console.log(type);
     switch (type) {
       case 'buy':
         return '/images/recieve.png';

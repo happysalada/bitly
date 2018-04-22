@@ -3,7 +3,8 @@ const initialState = {
   transactions: null,
   wallets: null,
   accounts: null,
-  income: {}
+  income: {},
+  usdIncome: 0
 };
 
 export default function (state = initialState, action) {
@@ -43,10 +44,16 @@ export default function (state = initialState, action) {
           return acc;
         }
       }, {});
+      let nativeIncome = 0;
+      action.transactions.forEach(trans => {
+        if (parseFloat(trans.native_amount.amount) >= 0.0)
+          nativeIncome += parseFloat(trans.native_amount.amount);
+      });
       return {
         ...state,
         income: income,
-        transactions: action.transactions
+        transactions: action.transactions,
+        usdIncome: nativeIncome
       }
     case 'CHANGE_PAGE':
       return {
