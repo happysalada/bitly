@@ -3,8 +3,7 @@ const initialState = {
   transactions: null,
   wallets: null,
   accounts: null,
-  incomeBTC: 0,
-  incomeUSD: 0
+  income: {}
 };
 
 export default function (state = initialState, action) {
@@ -31,18 +30,19 @@ export default function (state = initialState, action) {
       }
     case 'UPDATE_TRANSACTIONS':
       const income = action.transactions.reduce((acc, transaction) => {
+        console.log('helo', acc, transaction);
         const {amount, currency} = transaction.amount;
         const originalAmount = acc[currency]
         if (originalAmount) {
-          acc[currency] = originalAmount + Number(amount)
+          acc[currency] = originalAmount + parseFloat(amount)
           return acc;
         }
-        acc[currency] = Number(amount);
+        acc[currency] = parseFloat(amount);
         return acc;
       }, {});
       return {
         ...state,
-        income,
+        income: income,
         transactions: action.transactions
       }
     case 'CHANGE_PAGE':
