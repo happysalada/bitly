@@ -72,7 +72,7 @@
       <div class="row">
         <p style="margin-right: 250px">Automate calculation of the best way to declare your taxes</p>
         <img src= "/images/2.png" width="100" height="100">
-        <h2>Optimize your taxes</h2>
+        <h2 style="margin-top: 25px; margin-left: 20px;">Optimize your taxes</h2>
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
       </div>
       <div class="row">
         <img src= "/images/3.png" width="100" height="100">
-        <h2>Track every transaction</h2>
+        <h2 style="margin-left: 20px">Track every transaction</h2>
         <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
       </div>
     </div>
