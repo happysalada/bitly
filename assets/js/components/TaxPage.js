@@ -26,10 +26,11 @@ class TaxPage extends Component {
   }
 
   componentDidMount() {
-    if (this.props.accounts && this.state.update) {
+    if (this.props.accounts && this.state.update && !this.props.transactions) {
       this.props.getTransactions(this.props.accounts);
     } else {
-      this.props.getAccounts();
+      if (!this.props.accounts)
+        this.props.getAccounts();
     }
   }
 
