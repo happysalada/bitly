@@ -6,7 +6,7 @@
 
       <div style="display:flex;justify-content:space-between" class="row">
         <div class="col-sm-4 col-xs-12">
-          <div id="gtco-logo"><img src= "/images/db.png" width="30"><a href="index.html">BitDuty <em>.</em></a></div>
+          <div id="gtco-logo"><img src= "/images/db.png" width="50"><a href="index.html">BitDuty <em>.</em></a></div>
         </div>
         <div class="col-xs-8 text-right menu-1">
           <%= if @current_user do %>
@@ -92,8 +92,8 @@
 
 </div>
 </div>
-
-
+<footer>
+<div><center><img src= "/images/db.png" width="80"></center></div>>
 </footer>
   <!-- </div> -->
   </div>
