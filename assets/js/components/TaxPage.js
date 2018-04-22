@@ -44,9 +44,9 @@ class TaxPage extends Component {
   render() {
     const incomes = Object.entries(this.props.incomes).map(currency => {
       return (
-        <TableRow key={currency[0]}>
-            <TableCell>{currency[0]}</TableCell>
-            <TableCell>{currency[1]}</TableCell>
+        <TableRow style={{fontSize: '14px'}} key={currency[0]}>
+            <TableCell style={{fontSize: '14px'}}>{currency[0]}</TableCell>
+            <TableCell style={{fontSize: '14px'}}>{currency[1]}</TableCell>
         </TableRow>
       )
     });
@@ -58,9 +58,9 @@ class TaxPage extends Component {
 
     const viewTaxes = Object.entries(totalTaxes).map(currency => {
       return (
-        <TableRow key={currency[0]}>
-            <TableCell>{currency[0]}</TableCell>
-            <TableCell>{currency[1]}</TableCell>
+        <TableRow style={{fontSize: '14px'}} key={currency[0]}>
+            <TableCell style={{fontSize: '14px'}}>{currency[0]}</TableCell>
+            <TableCell style={{fontSize: '14px'}}>{currency[1]}</TableCell>
         </TableRow>
       )
     });
