@@ -55,78 +55,46 @@
     </div>
   </header>
 
-  <div id="gtco-features">
-    <div class="gtco-container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-          <h2>Merit</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-              <img src= "/images/1.png" width="100" height="100">
-            <h3>BitDuty taxes made easy</h3>
-            <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-              <img src= "/images/2.png" width="100" height="100">
-            <h3>Track performance</h3>
-            <p>Get a clear picture of your BitDuty investments, including the current portfolio, your return on investment over time, and more.</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="feature-center animate-box" data-animate-effect="fadeIn">
-              <img src= "/images/3.png" width="100" height="100">
-            <h3>Track every transaction</h3>
-            <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-
   <div id="gtco-features-2">
     <div class="gtco-container">
       <div class="row">
       </div>
       <div class="row">
-        <img src= "/images/1.png" width="100" height="100">          <h2>BitDuty taxes made easy</h2>
-          <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
-        </div>
+        <img src= "/images/1.png" width="100" height="100">
+        <h2>Crypto taxes made easy</h2>
+        <p>BitDuty calculates your cost basis and capital gains. Save hours of work with one of our tax plans, or download your transaction history for free.</p>
       </div>
     </div>
+  </div>
 
   <div id="gtco-features">
     <div class="gtco-container">
       <div class="row">
-      </div>
-      <div class="row">
-        <img src= "/images/2.png" width="100" height="100">          <h2>Track performance</h2>
-          <p>Get a clear picture of your BitDuty investments, including the current portfolio, your return on investment over time, and more.</p>
-        </div>
+        <p style="margin-right: 250px">Automate calculation of the best way to declare your taxes</p>
+        <img src= "/images/2.png" width="100" height="100">
+        <h2>Optimize your taxes</h2>
       </div>
     </div>
+  </div>
 
     <div id="gtco-features-2">
     <div class="gtco-container">
       <div class="row">
       </div>
       <div class="row">
-        <img src= "/images/3.png" width="100" height="100">          <h2>Track every transaction</h2>
-          <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
-        </div>
+        <img src= "/images/3.png" width="100" height="100">
+        <h2>Track every transaction</h2>
+        <p>Visualize how your cryptocurrency moves between wallets and exchanges and see every transaction in one place.</p>
       </div>
-    </div>
-
-
     </div>
   </div>
 
 
-  </footer>
+</div>
+</div>
+
+
+</footer>
   <!-- </div> -->
   </div>
 
