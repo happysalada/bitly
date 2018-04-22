@@ -14,6 +14,8 @@ import Table, {
   TableSortLabel,
 } from 'material-ui/Table';
 import Typography from 'material-ui/Typography';
+import NavTabs from './NavTabs';
+import Grid from 'material-ui/Grid';
 
 class TaxPage extends Component {
   render() {
@@ -26,6 +28,16 @@ class TaxPage extends Component {
         <span style={{ flex: 1 }}></span>
       </Toolbar>
     </AppBar>
+    <NavTabs />
+    <Grid container spacing={16}>
+      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+      <Table>
+          <TableBody>
+            </TableBody>
+          </Table>
+      </Grid>
+    </Grid>
+
     </React.Fragment>
     );
   }

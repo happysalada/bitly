@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
       }
     case 'UPDATE_TRANSACTIONS':
       const income = action.transactions.map(transaction => {
-
+        
       });
       return {
         ...state,
