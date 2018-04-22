@@ -70,7 +70,6 @@ export function getTransactions(accounts) {
       }
     }, []);
     const sortedTransactions = transactions.sort(({created_at: firstCreatedAt}, {created_at: secondCreatedAt}) => {
-      console.log(moment(firstCreatedAt).diff(moment(secondCreatedAt)));
       return moment(firstCreatedAt).diff(moment(secondCreatedAt));
     });
     dispatch({type: 'UPDATE_TRANSACTIONS', transactions: sortedTransactions});
@@ -84,7 +83,6 @@ export function changePage(value) {
 }
 
 export function checkTab(location) {
-  console.log('LOC', location)
   return dispatch => {
     dispatch({type: 'CHECK_TAB', location: location})
   };

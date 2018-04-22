@@ -16,17 +16,43 @@ import Table, {
 import Typography from 'material-ui/Typography';
 import NavTabs from './NavTabs';
 import Grid from 'material-ui/Grid';
+import Paper from 'material-ui/Paper';
+import { getAccounts, getTransactions } from '../actions';
 
 class TaxPage extends Component {
+
+  state = {
+    update: true
+  }
+
+  componentDidMount() {
+    if (this.props.accounts && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+    } else {
+      this.props.getAccounts();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.props.accounts && !this.props.transactions && this.state.update) {
+      this.props.getTransactions(this.props.accounts);
+      this.setState({update: false});
+    }
+  }
+
+
   render() {
     const incomes = Object.entries(this.props.incomes).map(currency => {
       return (
-        <TableRow>
+        <TableRow key={currency[0]}>
             <TableCell>{currency[0]}</TableCell>
             <TableCell>{currency[1]}</TableCell>
         </TableRow>
       )
     });
+
+    const totalTax = 1000*0.15;
+
     return (
       <React.Fragment>
       <AppBar position='static' style={{margin: 0}}>
@@ -39,11 +65,27 @@ class TaxPage extends Component {
     <NavTabs />
     <Grid container spacing={16}>
       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+      <Paper>
       <Table>
           <TableBody>
             {incomes}
           </TableBody>
           </Table>
+      </Paper>
+      </Grid>
+      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+      <Table>
+          <TableBody>
+          {totalTax}
+          </TableBody>
+          </Table>
+      </Grid>
+      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+        <Paper>
+          <div>
+            {totalTax}
+          </div>
+        </Paper>
       </Grid>
     </Grid>
 
@@ -54,12 +96,17 @@ class TaxPage extends Component {
 
 const mapStateToProps = state => {
   return {
+    transactions: state.transactions,
+    wallets: state.wallets,
+    accounts: state.accounts,
     incomes: state.income
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    getAccounts: () => dispatch(getAccounts()),
+    getTransactions: (accounts) => dispatch(getTransactions(accounts))
   };
 };
 

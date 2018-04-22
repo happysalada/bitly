@@ -30,7 +30,6 @@ export default function (state = initialState, action) {
       }
     case 'UPDATE_TRANSACTIONS':
       const income = action.transactions.reduce((acc, transaction) => {
-        console.log('helo', acc, transaction);
         const {amount, currency} = transaction.amount;
         const originalAmount = acc[currency]
         if (originalAmount) {
