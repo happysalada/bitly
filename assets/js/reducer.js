@@ -30,7 +30,9 @@ export default function (state = initialState, action) {
         accounts: accounts
       }
     case 'UPDATE_TRANSACTIONS':
-      console.log('TRANSACTIONS', action.transactions);
+      const income = action.transactions.map(transaction => {
+
+      });
       return {
         ...state,
         transactions: action.transactions
@@ -39,6 +41,26 @@ export default function (state = initialState, action) {
       return {
         ...state,
         page: action.value
+      }
+    case 'CHECK_TAB':
+    let value = 0;
+      switch (action.location.pathname) {
+        case '/app/wallets':
+          value = 2;
+          break;
+        case '/app/transactions':
+          value = 1;
+          break;
+        case '/home':
+          value = 0;
+          break;
+        case '/app/taxes':
+          value = 3;
+          break;
+      }
+      return {
+        ...state,
+        page: value
       }
     default:
       return state;

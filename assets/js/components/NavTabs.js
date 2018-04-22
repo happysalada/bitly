@@ -3,11 +3,15 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import {changePage } from '../actions';
+import {changePage, checkTab } from '../actions';
 
 
 
 class NavTabs extends Component {
+
+  componentDidMount() {
+    this.props.checkTab(this.props.location);
+  }
 
   render() {
     return (
@@ -23,6 +27,7 @@ class NavTabs extends Component {
         <Tab label='Home' onClick={() => {this.props.history.push('/home')}} />
         <Tab label='Transactions' onClick={() => {this.props.history.push('/app/transactions')}} />
         <Tab label='Wallets' onClick={() => {this.props.history.push('/app/wallets')}} />
+        <Tab label='Taxes' onClick={() => {this.props.history.push('/app/taxes')}} />
       </Tabs>
       </div>
     )
@@ -38,7 +43,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    changePage: (value) => dispatch(changePage(value))
+    changePage: (value) => dispatch(changePage(value)),
+    checkTab: (location) => dispatch(checkTab(location))
   };
 };
 

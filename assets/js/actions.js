@@ -73,12 +73,19 @@ export function getTransactions(accounts) {
       console.log(moment(firstCreatedAt).diff(moment(secondCreatedAt)));
       return moment(firstCreatedAt).diff(moment(secondCreatedAt));
     });
-    dispatch({type: 'UPDATE_TRANSACTIONS', sortedTransactions});
+    dispatch({type: 'UPDATE_TRANSACTIONS', transactions: sortedTransactions});
   };
 }
 
 export function changePage(value) {
   return dispatch => {
-    dispatch({type: 'CHANGE_PAGE', value});
+    dispatch({type: 'CHANGE_PAGE', value: value});
+  };
+}
+
+export function checkTab(location) {
+  console.log('LOC', location)
+  return dispatch => {
+    dispatch({type: 'CHECK_TAB', location: location})
   };
 }
