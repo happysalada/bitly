@@ -75,9 +75,7 @@ class TaxPage extends Component {
       </Toolbar>
     </AppBar>
     <NavTabs />
-    <Grid container spacing={16}>
-      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-      <Paper style={{padding: '10px', margin: '10px'}}>
+      <Paper style={{padding: '10px', margin: 'auto', width: '75%'}}>
       <Table>
           <TableBody>
           <TableRow>
@@ -87,16 +85,7 @@ class TaxPage extends Component {
           </TableBody>
           </Table>
       </Paper>
-      </Grid>
-      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-      <Table>
-          <TableBody>
-          
-          </TableBody>
-          </Table>
-      </Grid>
-      <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-        <Paper style={{padding: '10px', margin: '10px'}}>
+        <Paper style={{padding: '10px', margin: '30px auto', width: '75%'}}>
         <Table>
           <TableBody>
         <TableRow>
@@ -106,8 +95,6 @@ class TaxPage extends Component {
             </TableBody>
           </Table>
         </Paper>
-      </Grid>
-    </Grid>
 
     </React.Fragment>
     );
