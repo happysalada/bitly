@@ -146,7 +146,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #777;
+  color: #fff;
   background: #fff;
 }
 
@@ -1645,7 +1645,7 @@ form label {
 }
 @media screen and (max-width: 768px) {
   .row-mt-15em {
-    margin-top: 7em;
+    margin-top: 0em;
   }
 }
 

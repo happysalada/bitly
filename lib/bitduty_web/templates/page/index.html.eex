@@ -24,30 +24,26 @@
             <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
               <img src= "/images/PC.png" width="450" text-align:center>
               <h1>Cut off your waste time for tax with BitDuty!</h1>
-              <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.
-</h2>
-
-              <%= if @conn.assigns[:current_user] do %>
-                <h2>Welcome, <%= @current_user.name %>!</h2>
+              <h2>Securely auto-calculate your transactions so you never have to manually calculate tax by yourself again.</h2>
+              <%= if @current_user do %>
+                <h3>Welcome, <%= @current_user.name %>!</h3>
                 <img src="<%= @current_user.avatar %>" class="img-circle"/>
                 <%= link "Logout", to: "/auth/logout", method: :delete, class: "btn btn-danger" %>
               <% else %>
                 <br>
                 <br>
-                <button class="mdc-button" href="/auth/google">
-                  <i class="fa fa-google"></i>
-                  Sign in with Google
-                </button>
-
-                <button class="mdc-button" href="/auth/github">
-                  <i class="fa fa-github"></i>
-                  Sign in with GitHub
-                </button>
-
-                <button class="mdc-button" href="/auth/facebook">
-                  <i class="fa fa-facebook"></i>
-                  Sign in with Facebook
-                </button>
+                <a href="/auth/coinbase">
+                  <button class="mdc-button" >
+                    <i class="fa fa-google"></i>
+                    Sign in with Coinbase
+                  </button>
+                </a>
+                <a href="/auth/google">
+                  <button class="mdc-button" >
+                    <i class="fa fa-google"></i>
+                    Sign in with Google
+                  </button>
+                </a>
               <% end %>
               <p>By creating an account on BitDuty, you agree to our Terms and Privacy Policy.</p><br>
         </div>
@@ -132,7 +128,7 @@
       </div>
     </div>
 
-     
+
     </div>
   </div>
 
@@ -140,12 +136,4 @@
   </footer>
   <!-- </div> -->
   </div>
-
-  <div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-  </div>
-
-<section class="phx-hero">
-  <h2><%= gettext "Welcome to %{name}!", name: "BitDuty" %></h2>
-</section>
 
