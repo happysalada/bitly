@@ -51,28 +51,21 @@ export function getAccounts() {
 export function getTransactions(accounts) {
   console.log('IN ACTIONS' ,accounts);
   return async dispatch => {
-    try {
-      //let transactionRequests = [];
-      // accounts.map(account => {
-      //   console.log(account);
-      //   transactionRequests.push(fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'}))
-      // })
-
-      const responses = await accounts.reduce(async (acc, account) => {
-        try {
-          const response = await fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'});
-          return acc.concat(response);
-        } catch (error) {
-          return acc;
-        }   
-      }, []);
-      const responsesJson = await Promise.all(responses.map(response => response.json()));
-      const data = responsesJson.reduce((acc, {body}) => acc.concat(JSON.parse(body)), []);
-
-      dispatch({type: 'UPDATE_TRANSACTIONS', data})
-    } catch ({message}) {
-      console.log(message)
-    }
+    const transactions = await accounts.reduce(async (acc, account) => {
+      try {
+        const response = await fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'});
+        const {body} = await response.json();
+        if (body) {
+          const {data} = JSON.parse(body);
+          console.log('data', data);
+          return acc.concat(data);
+        }
+        return acc;
+      } catch (error) {
+        return acc;
+      }
+    }, []);
+    dispatch({type: 'UPDATE_TRANSACTIONS', transactions});
   };
 }
 

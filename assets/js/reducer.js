@@ -28,10 +28,10 @@ export default function (state = initialState, action) {
         accounts: accounts
       }
     case 'UPDATE_TRANSACTIONS':
-      console.log(action.data);
+      console.log(action.transactions);
       return {
         ...state,
-        transactions: action.data
+        transactions: action.transactions
       }
     case 'CHANGE_PAGE':
       return {
