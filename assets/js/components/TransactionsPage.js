@@ -65,12 +65,15 @@ class TransactionsPage extends Component {
   }
 
   getTypeImg(type) {
+    console.log(type);
     switch (type) {
       case 'buy':
         return '/images/recieve.png';
       case 'sell':
         return '/images/dollar.png';
       case 'send':
+        return '/images/send.png';
+      case 'fiat_withdrawal':
         return '/images/send.png';
     }
   }
@@ -96,6 +99,9 @@ class TransactionsPage extends Component {
         break;
       case 'send':
         msg = 'Sent';
+        break;
+      case 'fiat_withdrawal':
+        msg = 'Withdrawal';
         break;
       default:
         msg = 'error';
@@ -145,7 +151,7 @@ class TransactionsPage extends Component {
             <img style={this.styles.currencyImg} src={this.getCurrencyImg(transaction.amount.currency)} alt='currency img' />
           </TableCell>
           <TableCell>
-            <Typography style={{ fontSize: '12px' }}>{this.getPlace(transaction.exchange || 'address')}</Typography>
+            <Typography style={{ fontSize: '12px' }}>{this.getPlace(transaction.exchange || 'coinbase')}</Typography>
             <Typography style={{ fontSize: '12px', fontWeight: 'bold' }}>{`${transaction.amount.amount} ${transaction.amount.currency}`}</Typography>
             <Typography>{`${transaction.native_amount.amount} ${transaction.native_amount.currency}` || ''}</Typography>
           </TableCell>
@@ -162,7 +168,7 @@ class TransactionsPage extends Component {
         <AppBar position='static' style={{margin: 0}}>
           <Toolbar disableGutters>
             <span style={{ flex: 1 }}></span>
-            <Typography variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
+            <Typography color='secondary' variant='title' style={{ fontSize: '30px' }}>Transactions</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>

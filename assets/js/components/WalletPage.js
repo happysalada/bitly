@@ -39,6 +39,7 @@ class WalletPage extends Component {
     } else {
       this.props.getAccounts();
     }
+    
   }
 
   getCurrencyImg(currency, type) {
@@ -46,11 +47,13 @@ class WalletPage extends Component {
       case 'USD':
         return '/images/dollar.png';
       case 'BTC':
-        return type === 'vault' ? 'https://placehold.it/120x120' : '/images/bitcoin.png';
+        return type === 'vault' ? '/images/bitcoinvault.png' : '/images/bitcoin.png';
       case 'LTC':
         return '/images/litecoin.svg';
       case 'ETH':
         return '/images/ether.png';
+      case 'BCH':
+        return '/images/bitcoincash.png'
     }
   }
 
@@ -74,7 +77,7 @@ class WalletPage extends Component {
         <AppBar position='static' style={{margin: 0}}>
           <Toolbar>
             <span style={{ flex: 1 }}></span>
-            <Typography variant='title' style={{ fontSize: '30px' }}>Wallets</Typography>
+            <Typography color='secondary' variant='title' style={{ fontSize: '30px' }}>Wallets</Typography>
             <span style={{ flex: 1 }}></span>
           </Toolbar>
         </AppBar>

@@ -4,7 +4,7 @@ import HomePage from './components/HomePage';
 import TransactionsPage from './components/TransactionsPage';
 import WalletPage from './components/WalletPage';
 import WidgetPage from './components/WidgetPage';
-
+import TaxPage from './components/TaxPage';
 import {withRouter} from 'react-router-dom';
 
 class MainApp extends Component {
@@ -14,6 +14,7 @@ class MainApp extends Component {
         <Route path='/app/' exact component={HomePage} />
         <Route path='/app/transactions' exact component={TransactionsPage} />
         <Route path='/app/wallets' exact component={WalletPage} />
+        <Route path='/app/taxes' exact component={TaxPage} />
       </React.Fragment>
     );
   }

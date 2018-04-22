@@ -55,16 +55,17 @@ export function getTransactions(accounts) {
       try {
         const response = await fetch(`/api/accounts/${account}/transactions`, {credentials: 'same-origin'});
         const {body} = await response.json();
+        const dataSoFar = await acc;
         if (body) {
           const {data} = JSON.parse(body);
-          console.log('data', data);
-          return acc.concat(data);
+          return dataSoFar.concat(data);
         }
-        return acc;
+        return dataSoFar;
       } catch (error) {
         return acc;
       }
     }, []);
+    console.log('TRANSACTIONS', transactions)
     dispatch({type: 'UPDATE_TRANSACTIONS', transactions});
   };
 }

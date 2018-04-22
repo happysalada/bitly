@@ -28,7 +28,6 @@ export default function (state = initialState, action) {
         accounts: accounts
       }
     case 'UPDATE_TRANSACTIONS':
-      console.log(action.transactions);
       return {
         ...state,
         transactions: action.transactions

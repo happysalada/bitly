@@ -16,9 +16,11 @@ class NavTabs extends Component {
         fullWidth
         centered
         value={this.props.page}
-        color='primary'
+        textColor='primary'
+        indicatorColor='primary'
         onChange={(event, value) => {this.props.changePage(value)}}
       >
+        <Tab label='Home' onClick={() => {this.props.history.push('/home')}} />
         <Tab label='Transactions' onClick={() => {this.props.history.push('/app/transactions')}} />
         <Tab label='Wallets' onClick={() => {this.props.history.push('/app/wallets')}} />
       </Tabs>
