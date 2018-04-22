@@ -51,7 +51,19 @@ class TaxPage extends Component {
       )
     });
 
-    const totalTax = 1000*0.15;
+    const totalTaxes = {};
+    Object.entries(this.props.incomes).forEach(currency => {
+      totalTaxes[currency[0]] = currency[1]*0.15;
+    });
+
+    const viewTaxes = Object.entries(totalTaxes).map(currency => {
+      return (
+        <TableRow key={currency[0]}>
+            <TableCell>{currency[0]}</TableCell>
+            <TableCell>{currency[1]}</TableCell>
+        </TableRow>
+      )
+    });
 
     return (
       <React.Fragment>
@@ -65,9 +77,12 @@ class TaxPage extends Component {
     <NavTabs />
     <Grid container spacing={16}>
       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-      <Paper>
+      <Paper style={{padding: '10px', margin: '10px'}}>
       <Table>
           <TableBody>
+          <TableRow>
+          <TableCell style={{fontWeight: 'bold', fontSize: '16px'}}>Profits:</TableCell>
+          </TableRow>
             {incomes}
           </TableBody>
           </Table>
@@ -76,15 +91,20 @@ class TaxPage extends Component {
       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
       <Table>
           <TableBody>
-          {totalTax}
+          
           </TableBody>
           </Table>
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-        <Paper>
-          <div>
-            {totalTax}
-          </div>
+        <Paper style={{padding: '10px', margin: '10px'}}>
+        <Table>
+          <TableBody>
+        <TableRow>
+          <TableCell style={{fontWeight: 'bold', fontSize: '16px'}}>Taxes Owed:</TableCell>
+          </TableRow>
+            {viewTaxes}
+            </TableBody>
+          </Table>
         </Paper>
       </Grid>
     </Grid>

@@ -32,12 +32,16 @@ export default function (state = initialState, action) {
       const income = action.transactions.reduce((acc, transaction) => {
         const {amount, currency} = transaction.amount;
         const originalAmount = acc[currency]
-        if (originalAmount) {
+        if (originalAmount && parseFloat(amount) >= 0.0) {
           acc[currency] = originalAmount + parseFloat(amount)
           return acc;
+        } else {
+          if (!originalAmount) {
+            acc[currency] = parseFloat(amount);
+            return acc;
+          }
+          return acc;
         }
-        acc[currency] = parseFloat(amount);
-        return acc;
       }, {});
       return {
         ...state,
